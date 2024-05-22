@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const {Schema} = mongoose;
+const { Schema } = mongoose;
 
 //Defining the schema used to created User Model
 const userSchema = new mongoose.Schema({
@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
     ]
 },
     { //Virtuals are included with our response, which overrides the default behavior
-      //Used after querying MongoDb
+        //Used after querying MongoDb
         toJSON: {
             virtuals: true
         },
