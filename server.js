@@ -7,7 +7,7 @@ const mongoose = require('./config/connection');
 const app = express();
 const PORT = 3001;
 
-//Adding Middleware to the server
+//Adding Middleware to the server and to parse json
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(routes);
