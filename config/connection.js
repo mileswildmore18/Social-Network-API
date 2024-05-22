@@ -1,16 +1,5 @@
-require('mongoose').config();
+const { connect, connection } = require('mongoose');
 
-const Mongoose = require('mongoose');
+connect('mongodb://127.0.0.1:27017/videosAndResponses');
 
-//connects with a dynamic PORT
-const mongoose = process.env.DB_URL
-? new Mongoose(process.env.DB_URL)
-: new Mongoose(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-    host: 'localhost',
-    dialect: 'postgres',
-    dialectOptions: {
-      decimalNumbers: true,
-    },
-  });
-
-module.exports = mongoose;
+module.exports = connection;
