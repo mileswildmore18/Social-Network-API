@@ -17,8 +17,8 @@ mongoose.connect('mongodb://localhost:27017/socialNetwork', {
     .catch(err => console.log(err));
 
 //Using the user and thought routes
-app.use('/api/user', userRoute)
-app.use('/api/thought', thoughtsRoute);
+app.use('/api/users', userRoute)
+app.use('/api/thoughts', thoughtsRoute);
 
 //Starting the server
 const PORT = process.env.PORT || 3001;
