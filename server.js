@@ -1,20 +1,27 @@
 const express = require('express');
-const routes = require('./routes/');
-const mongoose = require('./config/connection');
+const mongoose = require('mongoose');
+const userRoute = require('./routes/api/userRoute')
+const thoughtsRoute = require('./routes/api/thoughtsRoute')
 // imports the mongoose connection
 
-//Providing the port number
 const app = express();
-const PORT = 3001;
 
 //Adding Middleware to the server and to parse json
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(routes);
 
-//syncs mongoose models to the database
-mongoose.sync({ force: false }).then(() =>{
-    app.listen(PORT, () => {
-        console.log (`App listening on port ${PORT}!`);
-    });
+//Connecting to MongoDB
+mongoose.connect('mongodb://localhost:27017/socialNetwork', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => console.log('MongoDB connected'))
+    .catch(err => console.log(err));
+
+//Using the user and thought routes
+app.use('/api/user', userRoute)
+app.use('/api/thought', thoughtsRoute);
+
+//Starting the server
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
