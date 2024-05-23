@@ -85,7 +85,7 @@ router.delete('/:id', async (req, res) => {
         if (!thought) return res.status(404).json({ message: 'Thought not found' });
 
         //removes the thought by id
-        await thought.remove();
+        await thought.deleteOne();
 
         //Removing the thought from the user's thoughts array
         const user = await User.findById(thought.userId);
