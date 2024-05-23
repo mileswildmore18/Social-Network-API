@@ -46,11 +46,11 @@ router.post('/', async (req, res) => {
 });
 
 // Using PUT to update a user by its _id
-router.put('/:id', async (req, res) =>{
+router.put('/:id', async (req, res) => {
     try {
         //finding the user by id and email
         const user = await User.findById(req.params.id);
-        if (!user) return res.status(404).json({ message: 'User not found'});
+        if (!user) return res.status(404).json({ message: 'User not found' });
 
         if (req.body.username != null) {
             user.username = req.body.username;
@@ -62,23 +62,23 @@ router.put('/:id', async (req, res) =>{
         const updatedUser = await user.save();
         res.json(updatedUser);
     } catch (err) {
-        res.status(400).json({message: err.message});
+        res.status(400).json({ message: err.message });
     }
 });
 
 //Using DELETE to remove a user by its _id
-router.delete('/:id', async (req,res) =>{
+router.delete('/:id', async (req, res) => {
     try {
         //finding the user by id
         const user = await User.findById(req.params.id);
-        if (!user) return res.status(404).json({ message: 'User not found'});
+        if (!user) return res.status(404).json({ message: 'User not found' });
 
         //deleting the user
         await user.remove();
-        res.json({message: 'User deleted'});
+        res.json({ message: 'User deleted' });
     } catch (err) {
-        res.status(400).json({message: err.message});
+        res.status(400).json({ message: err.message });
     }
- });
+});
 
- module.exports = router;
+module.exports = router;
