@@ -7,23 +7,22 @@ const Thought = require('../../models/Thought');
 
 // Adding POST to create a new reaction stored in a single thought's reactions array field
 router.post('/:thoughtId/reactions', async (req, res) => {
-    console.log("hello World")
     try {
         // finds the thought by id
         const thought = await Thought.findOneAndUpdate({_id: req.params.thoughtId}, {$addToSet: {reactions: req.body}},{new: true})
         if (!thought) return res.status(404).json({ message: 'Thought not found' });
 
         // adds a new reaction by username and the body of the reaction
-        const newReaction = {
-            reactionBody: req.body.reactionBody,
-            username: req.body.username
-        };
+        // const newReaction = {
+        //     reactionBody: req.body.reactionBody,
+        //     username: req.body.username
+        // };
 
-        // // Generates a new reaction from the thought
-        thought.reactions.push(newReaction);
+        // Generates a new reaction from the thought
+        // thought.reactions.push(newReaction);
 
-        // //Saves the new reaction and returns thought documents
-        const updatedThought = await thought.save();
+        // Saves the new reaction and returns thought documents
+        // const updatedThought = await thought.save();
         res.status(201).json(thought);
     } catch (err) {
         res.status(400).json({ message: err.message });

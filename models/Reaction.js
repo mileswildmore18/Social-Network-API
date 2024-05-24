@@ -19,7 +19,7 @@ const reactionSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-        get: (timestamp) => new DataTransfer(timestamp).toISOString()
+        get: (timestamp) => new Date(timestamp).toISOString()
     }
 }, {//Ensuring getters are applied when converting the document to JSON
     toJSON: {
