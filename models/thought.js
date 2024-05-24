@@ -1,22 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-//Defining the reactionSchema
-const reactionSchema = new Schema({
-    reactionBody: {
-        type: String,
-        required: true,
-        maxlength: 280,
-    },
-    username: {
-        type: String,
-        required: true,
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-    }
-})
+const reactionSchema = require('./Reaction')
 
 //Defining the thoughtSchema
 const thoughtSchema = new Schema({
