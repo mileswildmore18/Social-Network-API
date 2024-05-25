@@ -25,6 +25,7 @@ const thoughtSchema = new Schema({
 }, {//Vituals and getters are included in the output when documents are converted to JSON or plain objects
     toJSON: { virtuals: true, getters: true },
     toObject: { virtuals: true, getters: true },
+    id: false
 });
 
 //Creating a virtual property reactionCount that retrieves the length of the thought's array field on the query
