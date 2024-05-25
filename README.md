@@ -6,8 +6,8 @@
 
 Welcome to the Social Network API! Here you get a chance to interact with the database just like when you want to add friends, give your thoughts on specific topics, and give your reactions to each other's posts. You also get the chance create users and store them in the new database known as MongoDb that stashes a huge amount of data at one time. You will be able to see all the users that you added, see them individually, as well as adding new users, update them, and remove them whenever you want. I also learned that you can also check out thoughts from users, as well as adding new ones, update them, and remove thoughts anytime. As a user, you can also add friends on this Social Network by their id, and you can remove them as well. When anyone gives their thoughts, you get the chance to react to any of the content added, and if you ever want to remove your reaction, you can do that also. I learned that Social Network API is very useful with MongoDb and store any information recorded by you, or by any user, so that you do not have to worry about your drive getting filled up. They are all stored in the MongoDb database. Enjoy your search on the Social Network and have fun searching for friends and giving thoughts and reactions!
 
-## Link
-
+## Link to Walk-Though Video
+https://drive.google.com/file/d/1shtc6zjTZLyUYfEr0Km_myj7KATkLazM/view
 
 ## Table of Contents
  * [Description](#description)
